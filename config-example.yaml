@@ -1,0 +1,10 @@
+database:                           # Database configuration
+  engine     : sqlite3              # Database engine (supported: sqlite3)
+  dbpath     : portfolio.db         # Database file path (ignored if sqlite3 not selected)
+
+interface:                          # Web Interface configuration
+  language : en                     # Language (supported: en, tr)
+
+webserver:                          # Web Server configuration
+  address : localhost               # Listen address
+  port    : 8080                    # Port number

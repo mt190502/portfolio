@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .Sitetitle }}</title>
+    <link rel="stylesheet" href="/static/lib/css/ripple.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/lib/js/htmx.min.js" crossorigin="anonymous"></script>
+    <script src="/static/lib/js/tailwind.js"></script>
+  </head>
+  <body>
+    <div class="navbar bg-backgroundSecondary">
+      <div class="navbar-start font-semibold">
+        <a class="navbar-item" href="/">{{ .Sitetitle }}</a>
+      </div>
+      <div class="navbar-end m-0 p-0">
+        <div class="navbar-item border-gray-6 flex py-2 pr-3.5">
+          <svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" onclick="switchTheme()">
+            <path class="fill-content3" id="toggle_theme" 
+              d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    {{template "error.html" .}}
+    <form hx-post="/auth/register" hx-target="#error-notification" hx-swap="outerHTML" class="mx-auto flex w-full max-w-sm mt-16 flex-col gap-6 pt-5">
+      <div class="flex flex-col items-center">
+        <h1 class="text-3xl font-semibold">{{index .register "sign_up"}}</h1>
+        <p class="text-sm">{{index .register "description"}}</p>
+      </div>
+      <div class="form-group">
+        <div class="form-field">
+          <label class="form-label">{{index .register "email"}}</label>
+          <input name="email" id="email" placeholder='{{index .register "typehere"}}' type="text" class="input max-w-full" oninput="checkRegisterCred()" />
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">{{index .register "password"}}</label>
+          <div class="form-control">
+            <input name="password" id="password" placeholder='{{index .register "typehere"}}' type="password" class="input max-w-full" oninput="checkRegisterCred()" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label">{{index .register "confirm"}}</label>
+          <div class="form-control">
+            <input name="confirm" id="confirm" placeholder='{{index .register "typehere"}}' type="password" class="input max-w-full" oninput="checkRegisterCred()" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <div class="form-control justify-between">
+            <button type="submit" id="submit" disabled class="btn w-full bg-blue-500 hover:bg-blue-700 font-semibold text-white p-2 rounded-lg mt-4">{{index .register "sign_up"}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script src="/static/functions.js"></script>
+  </body>
+</html>

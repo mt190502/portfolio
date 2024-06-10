@@ -1,0 +1,24 @@
+.hide {
+    display: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#error-notification,
+#success-notification {
+    transition: all 0.3s ease-in-out;
+}
+
+#error-notification.slide-out,
+#success-notification.slide-out {
+    transform: translateX(110%);
+}
+
+html,
+body,
+thead,
+.navbar {
+    transition: background-color .2s ease;
+}

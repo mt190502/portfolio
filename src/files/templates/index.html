@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ index .profile "Sitetitle" }}</title>
+    <link rel="stylesheet" href="/static/lib/css/ripple.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/lib/js/htmx.min.js" crossorigin="anonymous"></script>
+    <script src="/static/lib/js/tailwind.js"></script>
+  </head>
+  <body>
+    <div class="navbar bg-backgroundSecondary">
+      <div class="navbar-start font-semibold">
+        <a class="navbar-item">{{index .profile "Sitetitle" }}</a>
+      </div>
+      <div class="navbar-end m-0 p-0">
+        <div class="navbar-item border-gray-6 flex py-2 pr-3.5">
+          <svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" onclick="switchTheme()">
+            <path class="fill-content3" id="toggle_theme" 
+              d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-[250px]">
+      <div class="flex justify-center">
+        <div class="card m-1 mt-12 max-w-[20rem]">
+          <div class="card-body">
+            <h2 class="text-lg font-semibold mb-4">{{index .index "profile"}}</h2>
+            <p><strong>{{index .index "name"}}:</strong> {{index .profile "Name" }}</p>
+            <p><strong>{{index .index "phone"}}:</strong> <a href='tel:{{index .profile "Phone"}}'>{{index .profile "Phone"}}</a></p>
+            <p><strong>{{index .index "address"}}:</strong> {{index .profile "Address" }}</p>
+            <p><strong>{{index .index "email"}}:</strong> <a href='mailto:{{index .profile "Email"}}'>{{index .profile "Email"}}</a></p>
+          </div>
+        </div>
+        <div class="card m-1 mt-12 w-[720px] max-w-[720px]">
+          <div class="card-body">
+            <h2 class="text-lg font-semibold mb-4 text-center">{{index .index "aboutme"}}</h2>
+            <p>{{index .profile "About" }}</p>
+          </div> 
+        </div>
+        <div class="card m-1 mt-12 max-w-[20rem]">
+          <div class="card-body">
+            <h2 class="text-lg font-semibold mb-4">{{index .index "social"}}</h2>
+            <p><strong>LinkedIn:</strong> <a href='https://www.linkedin.com/in/{{index .profile "Linkedin"}}'>{{index .profile "Linkedin"}}</a></p>
+            <p><strong>GitHub:</strong> <a href='https://github.com/{{index .profile "Github"}}'>{{index .profile "Github"}}</a></p>
+            <p><strong>X (formerly Twitter):</strong> <a href='https://twitter.com/{{index .profile "Twitter"}}'>{{index .profile "Twitter"}}</a></p>
+            <p><strong>Facebook:</strong> <a href='https://www.facebook.com/{{index .profile "Facebook"}}'>{{index .profile "Facebook"}}</a></p>
+            <p><strong>Instagram:</strong> <a href='https://www.instagram.com/{{index .profile "Instagram"}}'>{{index .profile "Instagram"}}</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/static/functions.js"></script>
+  </body>
+</html>
